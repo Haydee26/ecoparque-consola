@@ -1,9 +1,14 @@
 
 package ecoparque.model;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public class ResponsabilidadCuidador {
+public class ResponsabilidadCuidador implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private Cuidador cuidador;
     private Especie especie;

@@ -3,23 +3,23 @@ package ecoparque;
 import ecoparque.controller.Controlador;
 import ecoparque.controller.ControladorPrincipal;
 import ecoparque.dao.AsignacionGuiaDAO;
-import ecoparque.dao.AsignacionGuiaDAOTexto;
+import ecoparque.dao.AsignacionGuiaDAOSerializado;
 import ecoparque.dao.CuidadorDAO;
-import ecoparque.dao.CuidadorDAOTexto;
+import ecoparque.dao.CuidadorDAOSerializado;
 import ecoparque.dao.EspecieDAO;
-import ecoparque.dao.EspecieDAOTexto;
+import ecoparque.dao.EspecieDAOSerializado;
 import ecoparque.dao.GuiaDAO;
-import ecoparque.dao.GuiaDAOTexto;
+import ecoparque.dao.GuiaDAOSerializado;
 import ecoparque.dao.HabitatDAO;
-import ecoparque.dao.HabitatDAOTexto;
+import ecoparque.dao.HabitatDAOSerializado;
 import ecoparque.dao.ItinerarioDAO;
-import ecoparque.dao.ItinerarioDAOTexto;
+import ecoparque.dao.ItinerarioDAOSerializado;
 import ecoparque.dao.ResponsabilidadCuidadorDAO;
-import ecoparque.dao.ResponsabilidadCuidadorDAOTexto;
+import ecoparque.dao.ResponsabilidadCuidadorDAOSerializado;
 import ecoparque.dao.UsuarioDAO;
-import ecoparque.dao.UsuarioDAOTexto;
+import ecoparque.dao.UsuarioDAOSerializado;
 import ecoparque.dao.ZonaDAO;
-import ecoparque.dao.ZonaDAOTexto;
+import ecoparque.dao.ZonaDAOSerializado;
 import ecoparque.exception.EcoparqueException;
 import ecoparque.service.AsignacionGuiaService;
 import ecoparque.service.AsignacionGuiaServiceImpl;
@@ -49,17 +49,17 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        // --- DAO (persistencia en archivos de texto) ---
-        ZonaDAO zonaDAO = new ZonaDAOTexto();
-        HabitatDAO habitatDAO = new HabitatDAOTexto();
-        EspecieDAO especieDAO = new EspecieDAOTexto(zonaDAO, habitatDAO);
-        ItinerarioDAO itinerarioDAO = new ItinerarioDAOTexto(zonaDAO);
-        GuiaDAO guiaDAO = new GuiaDAOTexto();
-        CuidadorDAO cuidadorDAO = new CuidadorDAOTexto();
-        UsuarioDAO usuarioDAO = new UsuarioDAOTexto();
-        AsignacionGuiaDAO asignacionGuiaDAO = new AsignacionGuiaDAOTexto(guiaDAO, itinerarioDAO);
+        // --- DAO (persistencia por serializacion (archivos .dat)) ---
+        ZonaDAO zonaDAO = new ZonaDAOSerializado();
+        HabitatDAO habitatDAO = new HabitatDAOSerializado();
+        EspecieDAO especieDAO = new EspecieDAOSerializado();
+        ItinerarioDAO itinerarioDAO = new ItinerarioDAOSerializado();
+        GuiaDAO guiaDAO = new GuiaDAOSerializado();
+        CuidadorDAO cuidadorDAO = new CuidadorDAOSerializado();
+        UsuarioDAO usuarioDAO = new UsuarioDAOSerializado();
+        AsignacionGuiaDAO asignacionGuiaDAO = new AsignacionGuiaDAOSerializado();
         ResponsabilidadCuidadorDAO responsabilidadCuidadorDAO =
-                new ResponsabilidadCuidadorDAOTexto(cuidadorDAO, especieDAO);
+                new ResponsabilidadCuidadorDAOSerializado();
 
         // --- Service (logica de negocio, uno por responsabilidad) ---
         ZonaService zonaService = new ZonaServiceImpl(zonaDAO);

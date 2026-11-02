@@ -1,9 +1,14 @@
 
 package ecoparque.model;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Itinerario {
+public class Itinerario implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private String codigo;
     private int duracionMinutos;

@@ -1,10 +1,15 @@
 
 package ecoparque.model;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Habitat {
+public class Habitat implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private String nombre;
     private String clima;

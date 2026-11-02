@@ -1,10 +1,15 @@
 
 package ecoparque.model;
 
+import java.io.Serializable;
+
 
 import java.time.LocalTime;
 
-public class AsignacionGuia {
+public class AsignacionGuia implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private Guia guia;
     private Itinerario itinerario;
